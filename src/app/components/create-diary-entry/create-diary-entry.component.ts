@@ -3,12 +3,12 @@ import { Component, NgZone, ViewChild } from '@angular/core';
 import { take } from 'rxjs/operators';
 
 @Component({
-  selector: "app-diary-entry",
-  templateUrl: "./diary-entry.component.html",
-  styleUrls: ["./diary-entry.component.css"]
+  selector: "app-create-diary-entry",
+  templateUrl: "./create-diary-entry.component.html",
+  styleUrls: ["./create-diary-entry.component.css"]
 })
 
-export class DiaryEntryComponent {
+export class CreateDiaryEntryComponent {
   subject: string = "";
   content: string = "";
 

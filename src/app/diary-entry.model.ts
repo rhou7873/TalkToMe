@@ -1,4 +1,5 @@
-export interface DiaryEntryModel {
+export interface DiaryEntry {
   subject: string;
   content: string;
+  date: Date;
 }

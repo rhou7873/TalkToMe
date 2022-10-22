@@ -5,18 +5,28 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavbarComponent } from './navbar/navbar.component';
-import { DiaryEntryComponent } from './diary-entry/diary-entry.component'
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { CreateDiaryEntryComponent } from './components/create-diary-entry/create-diary-entry.component';
+import { EntryListComponent } from './components/entry-list/entry-list.component';
+import { MemoryComponent } from './components/memory/memory.component';
+import { DiaryEntryComponent } from './components/diary-entry/diary-entry.component';
+
+import { MainPageComponent } from './pages/main-page/main-page.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
+    CreateDiaryEntryComponent,
+    MainPageComponent,
+    EntryListComponent,
+    MemoryComponent,
     DiaryEntryComponent
   ],
   imports: [
@@ -27,7 +37,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
