@@ -1,0 +1,26 @@
+<form class="form">
+  <mat-form-field class="full-width" appearance="fill" [style.fontSize]="'18px'">
+    <mat-label>Subject</mat-label>
+    <input
+      matInput
+      placeholder="Summarize your day..."
+      [(ngModel)]="subject"
+      name="subjectField"
+      required>
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Content</mat-label>
+    <textarea
+      matInput
+      cdkTextareaAutosize
+      #autosize="cdkTextareaAutosize"
+      cdkAutosizeMinRows="5"
+      placeholder="Talk about it..."
+      [(ngModel)]="content"
+      name="contentField"
+      required></textarea>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="submitDiaryEntry()">Submit Entry</button>
+</form>
