@@ -1,2 +1,14 @@
-[subject]
-[diary entry content]
+[I got the job! :(]
+[Dear diary, I got a co-op offer for the company I interviewed with last week.]
+
+[Doubts]
+[Dear diary, I'm having second doubts about this offer because I really want to take classes in the Spring and would prefer to work in the summer and take Summer classes for two consecutive summers.]
+
+[More doubts]
+[Dear diary, I miss home and am stressed out at school. Now I also have to consider this co-op offer and give a response by Wednesday after they just gave me the decision THursday. I'm thinkin gof declining the offer.]
+
+[Opportunity Costs]
+[Dear diary, I know if I decline this co-op offer I will have passed up on a secure 3 work term work experience. However, I also want to keep my doors open for other internships, but with this co-op I cannot do it. I am also waiting on other interview results to get back to me and don't want to be hasty in my decision making especially when I can definitely do better than the company I would be potentially working at.]
+
+[Crisis]
+[Help...]
