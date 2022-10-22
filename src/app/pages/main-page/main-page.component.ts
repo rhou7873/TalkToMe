@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { DiaryEntry } from 'src/app/diary-entry.model';
 import { MemoryComponent } from '../../components/memory/memory.component';
 
 @Component({
@@ -9,6 +8,5 @@ import { MemoryComponent } from '../../components/memory/memory.component';
 })
 
 export class MainPageComponent {
-  diaryEntryList: DiaryEntry[] = [];
 
 }

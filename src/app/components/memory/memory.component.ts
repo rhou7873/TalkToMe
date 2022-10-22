@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DiaryEntry } from '../../diary-entry.model';
+import { DiaryEntry } from '../../models/diary-entry.model';
 
 @Component({
   selector: "app-memory",

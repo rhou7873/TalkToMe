@@ -1,6 +1,8 @@
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
 import { Component, NgZone, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { take } from 'rxjs/operators';
+import { DiaryEntry } from 'src/app/models/diary-entry.model';
 
 @Component({
   selector: "app-create-diary-entry",
@@ -9,8 +11,7 @@ import { take } from 'rxjs/operators';
 })
 
 export class CreateDiaryEntryComponent {
-  subject: string = "";
-  content: string = "";
+  createdDiaryEntry!: DiaryEntry;
 
   constructor(private _ngZone: NgZone) {}
 
@@ -21,7 +22,14 @@ export class CreateDiaryEntryComponent {
     this._ngZone.onStable.pipe(take(1)).subscribe(() => this.autosize.resizeToFitContent(true));
   }
 
-  submitDiaryEntry() {
-
+  submitDiaryEntry(form: NgForm) {
+    this.createdDiaryEntry = {
+      subject: form.value.subject,
+      content: form.value.content,
+      date: new Date()
+    };
+    console.log(this.createdDiaryEntry);
+    form.reset("subject");
+    form.reset("content");
   }
 }

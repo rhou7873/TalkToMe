@@ -1,14 +1,14 @@
-<form class="form" (submit)="submitDiaryEntry()">
+<form class="form" (submit)="submitDiaryEntry(diaryEntryForm)" #diaryEntryForm="ngForm">
   <mat-form-field class="full-width" appearance="fill" [style.fontSize]="'18px'">
-    <mat-label>Subject</mat-label>
+    <mat-label>Subject (75 char. max.)</mat-label>
     <input
       matInput
       placeholder="Summarize your day..."
       name="subject"
       ngModel
-      required>
+      required
+      maxlength="75">
   </mat-form-field>
-
   <mat-form-field class="full-width" appearance="fill">
     <mat-label>Content</mat-label>
     <textarea
@@ -21,6 +21,5 @@
       ngModel
       required></textarea>
   </mat-form-field>
-
   <button mat-raised-button color="primary" type="submit">Submit Entry</button>
 </form>
