@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { MemoryComponent } from '../../components/memory/memory.component';
+import { MatDialog } from '@angular/material/dialog';
+import { DiaryEntryPageComponent } from '../diary-entry-page/diary-entry-page.component';
 
 @Component({
   selector: "app-main-page",
@@ -8,5 +9,12 @@ import { MemoryComponent } from '../../components/memory/memory.component';
 })
 
 export class MainPageComponent {
+  constructor(public dialog: MatDialog) {}
 
+  openCreateDiaryEntry() {
+    this.dialog.open(DiaryEntryPageComponent, {
+      enterAnimationDuration: "100ms",
+      exitAnimationDuration: "100ms"
+    });
+  }
 }

@@ -38,6 +38,7 @@ export class DiaryEntriesService {
   private onDiaryEntriesUpdated = new Subject<DiaryEntry[]>();
 
   getDiaryEntries() {
+    this.diaryEntries.sort((a, b) => b.date.getTime() - a.date.getTime()); // ensure latest entries at the top
     return [...this.diaryEntries];
   }
 

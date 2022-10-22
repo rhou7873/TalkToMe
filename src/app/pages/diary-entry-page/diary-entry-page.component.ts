@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { CreateDiaryEntryComponent } from 'src/app/components/create-diary-entry/create-diary-entry.component';
-import { DiaryEntriesService } from '../../services/diary-entries.service';
-import { DiaryEntry } from '../../models/diary-entry.model';
+import { Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: "app-diary-entry-page",
@@ -10,5 +8,5 @@ import { DiaryEntry } from '../../models/diary-entry.model';
 })
 
 export class DiaryEntryPageComponent {
-
+  constructor(public dialogRef: MatDialogRef<DiaryEntryPageComponent>) {}
 }
