@@ -15,7 +15,7 @@ button {
 
 .mat-button-wrapper {
   text-align: center;
-  display: inline-block;
+  margin-left: 5px;
 }
 
 mat-card-title {
@@ -27,4 +27,5 @@ mat-card {
   margin-top: 50px;
   width: 20%;
   height: 230px;
+  min-width: 210px
 }
