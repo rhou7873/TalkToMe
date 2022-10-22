@@ -11,10 +11,7 @@ import { EntryListComponent } from './components/entry-list/entry-list.component
 import { MemoryComponent } from './components/memory/memory.component';
 import { DiaryEntryComponent } from './components/diary-entry/diary-entry.component';
 
-import { DiaryEntriesService } from './services/diary-entries.service';
-
 import { MainPageComponent } from './pages/main-page/main-page.component';
-import { DiaryEntryPageComponent } from './pages/diary-entry-page/diary-entry-page.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -30,7 +27,6 @@ import { MatDialogModule } from '@angular/material/dialog';
     NavbarComponent,
     CreateDiaryEntryComponent,
     MainPageComponent,
-    DiaryEntryPageComponent,
     EntryListComponent,
     MemoryComponent,
     DiaryEntryComponent
