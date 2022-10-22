@@ -20,6 +20,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
+import { LoginComponent } from './pages/login-page/login.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MainPageComponent,
     EntryListComponent,
     MemoryComponent,
-    DiaryEntryComponent
+    DiaryEntryComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

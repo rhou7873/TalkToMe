@@ -1,0 +1,30 @@
+.full-width {
+  width: 100%;
+}
+
+button {
+  float: right;
+  margin: auto;
+  width: 75px;
+  text-align: center;
+}
+
+#sign-up {
+  margin-right: 15px;
+}
+
+.mat-button-wrapper {
+  text-align: center;
+  display: inline-block;
+}
+
+mat-card-title {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+mat-card {
+  margin-top: 50px;
+  width: 20%;
+  height: 230px;
+}

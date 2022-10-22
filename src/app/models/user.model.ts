@@ -4,6 +4,7 @@ export interface User {
   firstName: string;
   lastName: string;
   username: string;
-  password: string;
-  entries: DiaryEntry[];
+  passwordHash: string;
+  email: string;
+  diaryEntries: DiaryEntry[];
 }
