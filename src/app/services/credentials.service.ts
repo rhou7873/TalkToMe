@@ -4,12 +4,20 @@ import * as CryptoJS from 'crypto-js';
 @Injectable({providedIn: "root"})
 export class CredentialsService {
   private credentialsList = new Map([
-    ["rhou7873", {
+    ["user1", {
       firstName: "Ryan",
       lastName: "Hou",
-      username: "rhou7873",
+      username: "user1",
       passwordHash: this.getPasswordHash("hello"),
       email: "rhou7873@gmail.com",
+      diaryEntries: []
+    }],
+    ["user2", {
+      firstName: "Chris",
+      lastName: "Cheung",
+      username: "user2",
+      passwordHash: this.getPasswordHash("hello"),
+      email: "crisc25@gmail.com",
       diaryEntries: []
     }]
   ]);

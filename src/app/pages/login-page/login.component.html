@@ -1,33 +1,105 @@
-<mat-card >
-    <mat-card-title>Login</mat-card-title>
-    <mat-card-content>
+<form *ngIf="!signup">
+    <mat-card id="login-card">
+        <mat-card-title>Login</mat-card-title>
+        <mat-card-content>
+            <mat-form-field class="full-width" appearance="fill">
+              <mat-label>Username</mat-label>
+              <input
+                matInput
+                name="username"
+                [(ngModel)]="username"
+                required>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+              <mat-label>Password</mat-label>
+              <input
+                matInput
+                type="password"
+                name="password"
+                [(ngModel)]="password"
+                required>
+            </mat-form-field>
+            <span>
+              <button
+                mat-raised-button
+                color="primary"
+                (keydown.enter)="loginClick()"
+                (click)="loginClick()">Login</button>
+              <button
+                id="sign-up"
+                mat-raised-button
+                color="secondary"
+                (click)="signup = true">Sign Up</button>
+            </span>
+        </mat-card-content>
+    </mat-card>
+</form>
+<form *ngIf="signup" (submit)="signUpUser(signUpForm)" #signUpForm="ngForm">
+  <mat-card id="signup-card">
+      <mat-card-title>Sign Up</mat-card-title>
+      <mat-card-content>
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>First Name</mat-label>
+          <input
+            matInput
+            name="firstName"
+            ngModel
+            required>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Last Name</mat-label>
+          <input
+            matInput
+            name="lastName"
+            ngModel
+            required>
+        </mat-form-field>
         <mat-form-field class="full-width" appearance="fill">
           <mat-label>Username</mat-label>
           <input
             matInput
-            #usernameField
-            [(ngModel)]="username"
+            name="username"
+            ngModel
             required>
         </mat-form-field>
         <mat-form-field class="full-width" appearance="fill">
           <mat-label>Password</mat-label>
           <input
             matInput
-            #passwordField
             type="password"
-            [(ngModel)]="password"
+            name="password"
+            ngModel
+            required>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Confirm Password</mat-label>
+          <input
+            matInput
+            type="password"
+            name="confirmPassword"
+            ngModel
+            required>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            name="email "
+            ngModel
             required>
         </mat-form-field>
         <span>
           <button
-            mat-raised-button
-            color="primary"
-            (click)="loginClick()">Login</button>
+          id="sign-up-confirm"
+          mat-raised-button
+          color="primary"
+          type="submit">Sign Up</button>
           <button
-            id="sign-up"
-            mat-raised-button
-            color="primary"
-            (click)="signUpClick()">Sign Up</button>
+          id="sign-up"
+          mat-raised-button
+          color="secondary"
+          (click)="signup = false">Back</button>
         </span>
-    </mat-card-content>
-</mat-card>
+      </mat-card-content>
+  </mat-card>
+</form>
