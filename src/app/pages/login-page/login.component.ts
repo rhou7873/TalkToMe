@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { User } from 'src/app/models/user.model';
+import { UserSessionService } from 'src/app/services/user-session.service';
 import { CredentialsService } from '../../services/credentials.service';
 
 @Component({
@@ -13,12 +15,14 @@ export class LoginComponent {
   password: string = "";
   signup = false;
 
-  constructor(public credentialsService: CredentialsService) {}
+  constructor(public credentialsService: CredentialsService, public userService: UserSessionService) {}
 
   loginClick() {
     const validCredentials = this.credentialsService.validCredentials(this.username, this.password);
     if (validCredentials) {
       console.log("VALID credentials");
+      const currUser: User = this.credentialsService.getUser(this.username);
+      this.userService.changeCurrUser(currUser);
     } else {
       console.log("INVALID credentials");
       this.username = "";
