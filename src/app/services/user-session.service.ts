@@ -3,9 +3,9 @@ import { User } from '../models/user.model';
 
 @Injectable({providedIn: "root"})
 export class UserSessionService {
-  private currUser!: User;
+  private currUser: User | null = null;
 
-  changeCurrUser(user: User) {
+  changeCurrUser(user: User | null) {
     this.currUser = user;
   }
 

@@ -1,8 +1,11 @@
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
-import { Component, NgZone, ViewChild } from '@angular/core';
+import { Component, NgZone, ViewChild, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { take } from 'rxjs/operators';
 import { DiaryEntry } from 'src/app/models/diary-entry.model';
+import { DiaryEntriesService } from '../../services/diary-entries.service';
+import { UserSessionService } from 'src/app/services/user-session.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: "app-create-diary-entry",
@@ -13,7 +16,8 @@ import { DiaryEntry } from 'src/app/models/diary-entry.model';
 export class CreateDiaryEntryComponent {
   createdDiaryEntry!: DiaryEntry;
 
-  constructor(private _ngZone: NgZone) {}
+  constructor(public dialogRef: MatDialogRef<CreateDiaryEntryComponent>, private _ngZone: NgZone,
+    public diaryEntriesService: DiaryEntriesService, public userService: UserSessionService) {}
 
   @ViewChild('autosize') autosize!: CdkTextareaAutosize;
 
@@ -23,13 +27,11 @@ export class CreateDiaryEntryComponent {
   }
 
   submitDiaryEntry(form: NgForm) {
-    this.createdDiaryEntry = {
-      subject: form.value.subject,
-      content: form.value.content,
-      date: new Date()
-    };
-    console.log(this.createdDiaryEntry);
-    form.reset("subject");
-    form.reset("content");
+    if (form.value.subject.length > 0 && form.value.content.length > 0) {
+      this.diaryEntriesService.addDiaryEntry(this.userService.getCurrUser()!, form.value.subject,
+        form.value.content, new Date());
+      this.dialogRef.close();
+      console.log(this.userService.getCurrUser());
+    }
   }
 }

@@ -1,0 +1,9 @@
+div {
+  position: relative;
+  margin-top: 20px;
+  min-height: 100vh;
+}
+
+#no-entries {
+  text-align: center;
+}

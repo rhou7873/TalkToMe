@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { DiaryEntry } from 'src/app/models/diary-entry.model';
-import { MemoryComponent } from '../../components/memory/memory.component';
 import { DiaryEntriesService } from 'src/app/services/diary-entries.service';
 import { UserSessionService } from 'src/app/services/user-session.service';
 
@@ -18,9 +17,9 @@ export class EntryListComponent implements OnInit, OnDestroy {
   constructor(public diaryEntriesService: DiaryEntriesService, public userService: UserSessionService) {}
 
   ngOnInit() {
-    this.diaryEntries = this.diaryEntriesService.getDiaryEntries(this.userService.getCurrUser());
+    this.diaryEntries = this.diaryEntriesService.getDiaryEntries(this.userService.getCurrUser()!);
     this.diaryEntriesSub = this.diaryEntriesService.getDiaryEntriesUpdated().subscribe((diaryEntries: DiaryEntry[]) => {
-      this.diaryEntries = diaryEntries;
+      this.diaryEntries = [...diaryEntries];
     });
     console.log(this.diaryEntries);
   }

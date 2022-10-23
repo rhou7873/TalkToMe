@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { User } from 'src/app/models/user.model';
 import { UserSessionService } from 'src/app/services/user-session.service';
 import { CredentialsService } from '../../services/credentials.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginComponent {
   password: string = "";
   signup = false;
 
-  constructor(public credentialsService: CredentialsService, public userService: UserSessionService) {}
+  constructor(public credentialsService: CredentialsService, public userService: UserSessionService,
+    public router: Router) {}
 
   loginClick() {
     const validCredentials = this.credentialsService.validCredentials(this.username, this.password);
@@ -23,6 +25,8 @@ export class LoginComponent {
       console.log("VALID credentials");
       const currUser: User = this.credentialsService.getUser(this.username);
       this.userService.changeCurrUser(currUser);
+      console.log(currUser);
+      this.router.navigateByUrl("/home");
     } else {
       console.log("INVALID credentials");
       this.username = "";
@@ -32,8 +36,15 @@ export class LoginComponent {
 
   signUpUser(form: NgForm) {
     const val = form.value;
-    if (val.password == val.confirmPassword) {
-      this.credentialsService.createUser(val.firstName, val.lastName, val.username, val.password, val.email);
+    const everythingFilled = val.firstName != "" && val.lastName != "" && val.username != "" &&
+      val.password != "" && val.email != "";
+    if (everythingFilled && val.password == val.confirmPassword) {
+      const newUser = this.credentialsService.createUser(val.firstName, val.lastName, val.username, val.password, val.email);
+      this.userService.changeCurrUser(newUser);
+      this.router.navigateByUrl("/home");
+      this.credentialsService.showUsers();
+    } else {
+
     }
   }
 }

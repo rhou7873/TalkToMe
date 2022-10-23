@@ -1,4 +1,4 @@
-<app-memory></app-memory>
+<app-memory *ngIf="memoryForToday != undefined" [diaryEntryMemory]="memoryForToday"></app-memory>
 <app-entry-list></app-entry-list>
 <button
   mat-fab

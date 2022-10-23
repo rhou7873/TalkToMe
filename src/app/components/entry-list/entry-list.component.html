@@ -1,4 +1,9 @@
-<app-diary-entry
-  *ngFor="let diaryEntry of diaryEntries"
-  [diaryEntry]="diaryEntry">
-</app-diary-entry>
+<div *ngIf="diaryEntries.length == 0" id="no-entries">
+  <h3 class="header-1">No diary entries yet</h3>
+</div>
+<div *ngIf="diaryEntries.length > 0">
+  <app-diary-entry
+    *ngFor="let diaryEntry of diaryEntries"
+    [diaryEntry]="diaryEntry">
+  </app-diary-entry>
+</div>

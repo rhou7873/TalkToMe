@@ -18,12 +18,15 @@ export class DiaryEntriesService {
     return this.onDiaryEntriesUpdated.asObservable();
   }
 
-  addDiaryEntry(subject: string, content: string, date: Date) {
-    this.diaryEntries.push({
+  addDiaryEntry(user: User, subject: string, content: string, date: Date) {
+    user.diaryEntries.push({
       subject: subject,
       content: content,
       date: date
     });
-    this.onDiaryEntriesUpdated.next([...this.diaryEntries]);
+    user.diaryEntries.sort((a, b) => {
+      return b.date.getTime() - a.date.getTime();
+    })
+    this.onDiaryEntriesUpdated.next([...user.diaryEntries]);
   }
 }

@@ -13,6 +13,13 @@ export class CredentialsService {
       email: "rhou7873@gmail.com",
       diaryEntries: [
         {
+          subject: "I hated it today",
+          content: "Today, I woke up at 6:00 am to finish a project for my class. I stressed myself out the whole day " +
+            "trying to complete the assignment, not realizing that I was already late with it. After I realized that, I checked " +
+            "my gradebook and found out I failed an exam for another class. Quite a rough day...",
+          date: new Date(2021, 9, 22),
+        },
+        {
           subject: "Felt super productive today",
           content: "Today kinda started out iffy. I was supposed to call David at 9 am, and " +
           "I woke up at 8:30 for the call, but he didn't even pick up (what a shocker). It's ok " +
@@ -37,7 +44,7 @@ export class CredentialsService {
           date: new Date(2022, 9, 19),
         },
         {
-          subject: "I'm so tired",
+          subject: "I'm so tired...but having a great time",
           content: "I was super excited to go to Atlanta today, but I also was so tired all day. I had to " +
           "wake up at 5:30 am to catch my flight, and had to pay $20 for an Uber to the airport (wasn't the " +
           "greatest start to the day). The flight was pretty good though, since the person in the middle of my " +
@@ -103,16 +110,17 @@ export class CredentialsService {
     return this.credentialsList.get(username)?.passwordHash == this.getPasswordHash(password);
   }
 
-  createUser(firstName: string, lastName: string, username: string, password: string, email: string) {
-    this.credentialsList.set(username, {
+  createUser(firstName: string, lastName: string, username: string, password: string, email: string): User {
+    let newUser: User = {
       firstName: firstName,
       lastName: lastName,
       username: username,
       passwordHash: this.getPasswordHash(password),
       email: email,
       diaryEntries: []
-    });
-    console.log(this.credentialsList.get(username)?.passwordHash);
+    }
+    this.credentialsList.set(newUser.username, newUser);
+    return newUser;
   }
 
   private getPasswordHash(password: string): string {
@@ -121,5 +129,12 @@ export class CredentialsService {
 
   getUser(username: string): User {
     return this.credentialsList.get(username)!;
+  }
+
+  showUsers() {
+    this.credentialsList.forEach(user => {
+      console.log(user);
+    });
+    console.log(this.credentialsList.size);
   }
 }
