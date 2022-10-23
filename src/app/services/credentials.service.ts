@@ -17,7 +17,7 @@ export class CredentialsService {
           content: "Today, I woke up at 6:00 am to finish a project for my class. I stressed myself out the whole day " +
             "trying to complete the assignment, not realizing that I was already late with it. After I realized that, I checked " +
             "my gradebook and found out I failed an exam for another class. Quite a rough day...",
-          date: new Date(2021, 9, 22),
+          date: new Date(2021, 9, 23),
         },
         {
           subject: "Felt super productive today",
